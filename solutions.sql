@@ -31,3 +31,40 @@ SELECT * FROM CITY;
 /* solution */ 
 
 SELECT * FROM CITY WHERE ID = 1661;
+
+
+
+/* Q5-Query all attributes of every Japanese city in the CITY table. The COUNTRYCODE for Japan is JPN.*/
+
+
+/* solution*/
+
+SELECT * FROM CITY WHERE COUNTRYCODE = 'JPN';
+
+
+/* Q6-Query the names of all the Japanese cities in the CITY table. The COUNTRYCODE for Japan is JPN.*/
+
+
+/*solution*/
+
+SELECT NAME FROM CITY WHERE COUNTRYCODE = 'JPN';
+
+
+
+
+/* Q7-Query a list of CITY and STATE from the STATION table.*/
+
+
+/*solution*/
+
+SELECT CITY , STATE FROM STATION;
+
+
+
+/* Q8-Query a list of CITY names from STATION for cities that have an even ID number. Print the results in any order, but exclude duplicates from the answer.*/
+
+
+/*solution*/
+
+SELECT  DISTINCT CITY FROM STATION WHERE MOD(ID, 2) = 0;
+
