@@ -68,5 +68,11 @@ SELECT CITY , STATE FROM STATION;
 
 SELECT  DISTINCT CITY FROM STATION WHERE MOD(ID, 2) = 0;
 
---end
 
+
+/* Q9-Find the difference between the total number of CITY entries in the table and the number of distinct CITY entries in the table.*/
+
+
+/*solution*/
+
+SELECT COUNT(CITY) - COUNT(DISTINCT CITY) FROM STATION;
