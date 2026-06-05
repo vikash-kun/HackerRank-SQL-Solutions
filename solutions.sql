@@ -76,3 +76,23 @@ SELECT  DISTINCT CITY FROM STATION WHERE MOD(ID, 2) = 0;
 /*solution*/
 
 SELECT COUNT(CITY) - COUNT(DISTINCT CITY) FROM STATION;
+
+
+
+/* Q10 - Query the two cities in STATION with the shortest and longest CITY names, as well as their respective lengths (i.e.: number of characters in the name). If there is more than one smallest or largest city, choose the one that comes first when ordered alphabetically.*/
+
+
+/* solution */
+
+SELECT CITY, LENGTH(CITY) FROM (
+  SELECT CITY, ROW_NUMBER() OVER (ORDER BY LENGTH(CITY) ASC, CITY ASC) AS RN
+  FROM STATION
+) WHERE RN = 1
+
+UNION
+
+SELECT CITY, LENGTH(CITY) FROM (
+  SELECT CITY, ROW_NUMBER() OVER (ORDER BY LENGTH(CITY) DESC, CITY ASC) AS RN
+  FROM STATION
+) WHERE RN = 1;
+
