@@ -197,8 +197,19 @@ WHERE LOWER(LEFT(CITY,1)) not IN  ('a','e','i','o','u')
   /*solution*/
 
 
-  SELECT DISTINCT CITY
+ SELECT DISTINCT CITY
 FROM STATION
 WHERE LOWER(LEFT(CITY,1)) not IN  ('a','e','i','o','u')
   and LOWER(RIGHT(CITY,1))  not IN ('a','e','i','o','u');
 
+
+
+
+  /*Q18Query the Name of any student in STUDENTS who scored higher than 75 Marks. Order your output by the last three characters of each name. If two or more students both have names ending in the same last three characters (i.e.: Bobby, Robby, etc.), secondary sort them by ascending ID.*/
+
+
+ /*solution*/
+
+
+select name from students where marks > 75
+order by right (Name, 3), ID ASC;
