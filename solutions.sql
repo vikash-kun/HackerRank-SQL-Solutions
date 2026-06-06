@@ -164,4 +164,12 @@ WHERE LOWER(LEFT(CITY,1)) not in ('a','e','i','o','u');
 
 
 
-/* Q15*/
+/* Q15-Query the list of CITY names from STATION that do not end with vowels. Your result cannot contain duplicates.*/
+
+
+/*solution*/
+
+
+SELECT DISTINCT CITY
+FROM STATION
+WHERE LOWER(RIGHT(CITY,1)) not in ('a','e','i','o','u');
