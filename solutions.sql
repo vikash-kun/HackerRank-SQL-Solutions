@@ -148,3 +148,20 @@ FROM STATION
 WHERE LOWER(LEFT(CITY,1)) IN ('a','e','i','o','u')
   AND LOWER(RIGHT(CITY,1)) IN ('a','e','i','o','u');
 
+
+
+
+/* Q14- Query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates*/
+
+
+/*solution*/
+
+
+SELECT DISTINCT CITY
+FROM STATION
+WHERE LOWER(LEFT(CITY,1)) not in ('a','e','i','o','u');
+
+
+
+
+/* Q15*/
