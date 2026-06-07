@@ -213,3 +213,78 @@ WHERE LOWER(LEFT(CITY,1)) not IN  ('a','e','i','o','u')
 
 select name from students where marks > 75
 order by right (Name, 3), ID ASC;
+
+
+
+
+/*Q19-Write a query that prints a list of employee names (i.e.: the name attribute) from the Employee table in alphabetical order.*/
+
+
+/*solution*/
+
+
+SELECT name from Employee
+order by name ;
+
+
+
+
+/*Q20-Write a query that prints a list of employee names (i.e.: the name attribute) for employees in Employee having a salary greater than $2000  per month who have been employees for less than 10 months. Sort your result by ascending employee_id.*/
+
+
+/*solution*/
+
+
+SELECT name from Employee where salary >2000 and months < 10 order by employee_id;
+
+
+
+
+/*Q21-Write a query identifying the type of each record in the TRIANGLES table using its three side lengths. Output one of the following statements for each record in the table:
+
+Equilateral: It's a triangle with 3 sides of equal length.
+Isosceles: It's a triangle with 2 sides of equal length.
+Scalene: It's a triangle with 3 sides of differing lengths.
+Not A Triangle: The given values of A, B, and C don't form a triangle.*/
+
+
+/*solution*/
+
+
+SELECT 
+    CASE
+        WHEN A + B <= C OR A + C <= B OR B + C <= A 
+            THEN 'Not A Triangle'
+        WHEN A = B AND B = C 
+            THEN 'Equilateral'
+        WHEN A = B OR A = C OR B = C 
+            THEN 'Isosceles'
+        ELSE 'Scalene'
+    END AS TriangleType
+FROM TRIANGLES;
+
+
+
+
+/*Q22-Query a count of the number of cities in CITY having a Population larger than 100,000 .*/
+
+
+/*solution*/
+
+
+SELECT COUNT(*)
+FROM CITY
+WHERE POPULATION > 100000;
+
+
+
+
+/*Q23-Query the total population of all cities in CITY where District is California.*/
+
+
+/*solution*/
+
+
+SELECT SUM(POPULATION)
+FROM CITY
+WHERE DISTRICT = 'California';
