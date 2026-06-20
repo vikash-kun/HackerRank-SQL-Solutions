@@ -334,3 +334,36 @@ SELECT SUM(population) FROM city WHERE countrycode = 'JPN';
 
 
 SELECT Max(population) - min (population) from city;
+
+
+
+
+/*Q-28-We define an employee's total earnings to be their monthly salary * months worked, and the maximum total earnings to be the maximum total earnings for any employee in the Employee table. Write a query to find the maximum total earnings for all employees as well as the total number of employees who have maximum total earnings. Then print these values as 2 space-separated integers.
+
+
+/*solution*/
+
+
+SELECT 
+    months * salary,
+    COUNT(*) 
+FROM Employee
+GROUP BY months * salary
+ORDER BY months * salary DESC
+LIMIT 1;
+
+
+
+
+/*Q29-Query the following two values from the STATION table:
+
+The sum of all values in LAT_N rounded to a scale of 2 decimal places.
+The sum of all values in LONG_W rounded to a scale of 2 decimal places.*/
+
+
+/*solution*/
+
+
+select cast(round(sum(lat_n),2) as numeric(7,2)),
+       cast(round(sum(long_w),2) as numeric(7,2))
+from station;
